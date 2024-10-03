@@ -34,7 +34,7 @@ const SignInPage = () => {
       localStorage.setItem("token", accessToken);
       navigate("/home");
     }
-  }, [accessToken]);
+  }, [accessToken, navigate]);
 
   return (
     <div>

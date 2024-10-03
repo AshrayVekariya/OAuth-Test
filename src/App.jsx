@@ -3,9 +3,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  // useLocation,
-  Outlet,
-  Navigate,
 } from "react-router-dom";
 
 // Mui
