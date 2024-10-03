@@ -3,13 +3,10 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useLocation,
+  // useLocation,
   Outlet,
   Navigate,
 } from "react-router-dom";
-
-// jew-decode
-import { jwtDecode } from "jwt-decode";
 
 // Mui
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -18,12 +15,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { privateRoutes, publicRoutes } from "./routing/route";
+import { publicRoutes } from "./routing/route";
 
 import "./App.css";
-import Header from "./layout/header/Header";
-import { useEffect, useState } from "react";
-import { refreshToken } from "./services/authService";
 
 const theme = createTheme({
   palette: {
@@ -50,20 +44,20 @@ function App() {
   //   checkToken();
   // }, []);
 
-  const refreshAccessToken = async () => {
-    const refreshAccessToken = localStorage.getItem("refreshToken");
-    const res = await refreshToken(refreshAccessToken);
-    localStorage.setItem("token", res.accessToken);
-  };
+  // const refreshAccessToken = async () => {
+  //   const refreshAccessToken = localStorage.getItem("refreshToken");
+  //   const res = await refreshToken(refreshAccessToken);
+  //   localStorage.setItem("token", res.accessToken);
+  // };
 
-  const RequireAuth = () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      return <Navigate to="/login" replace />;
-    } else {
-      return <Outlet />;
-    }
-  };
+  // const RequireAuth = () => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     return <Navigate to="/login" replace />;
+  //   } else {
+  //     return <Outlet />;
+  //   }
+  // };
 
   // const CheckIsLoggedIn = ({ element }) => {
   //   const token = localStorage.getItem("token");

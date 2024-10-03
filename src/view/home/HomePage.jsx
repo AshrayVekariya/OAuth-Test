@@ -9,7 +9,6 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [accessToken, setAccessToken] = useState("");
-  const [refreshToken, setRefreshToken] = useState("");
   const [userDetail, setUserDetail] = useState("");
 
   useEffect(() => {
@@ -29,7 +28,7 @@ const HomePage = () => {
       localStorage.setItem("token", accessToken);
       navigate("/home");
     }
-  }, [accessToken]);
+  }, [accessToken, navigate]);
 
   // useEffect(() => {
   //   getLoginUserDetail();

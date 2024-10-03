@@ -15,7 +15,6 @@ const SignInPage = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [accessToken, setAccessToken] = useState("");
-  const [refreshToken, setRefreshToken] = useState("");
 
   const handleSubmit = () => {
     if (clientId && clientId !== "") {
@@ -27,15 +26,12 @@ const SignInPage = () => {
 
   useEffect(() => {
     const token = searchParams.get("token");
-    const refreshString = searchParams.get("refresh_token");
     setAccessToken(token);
-    setRefreshToken(refreshString);
   }, [searchParams]);
 
   useEffect(() => {
     if (accessToken) {
       localStorage.setItem("token", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
       navigate("/home");
     }
   }, [accessToken]);
